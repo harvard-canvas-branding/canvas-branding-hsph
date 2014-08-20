@@ -1,6 +1,13 @@
 
+#header-inner{
+    background: transparent !important;
+    background-image: none !important;
+}
+
+
 #header{
     background: #595959 !important;
+    background-image: none !important;
 }
 
 .harvardLogo{
