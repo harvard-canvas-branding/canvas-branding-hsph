@@ -1,13 +1,11 @@
 
 #header-inner{
-    background: transparent !important;
-    background-image: none !important;
+    background-color: #595959 !important;
 }
 
 
 #header{
-    background: #595959 !important;
-    background-image: none !important;
+    background-color: #595959 !important;
 }
 
 .harvardLogo{
