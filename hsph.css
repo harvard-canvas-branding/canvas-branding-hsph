@@ -1,0 +1,15 @@
+
+#header{
+    background: #595959;
+}
+
+.harvardLogo{
+    display: inline-block;
+    left: 16px;
+    bottom: 0;
+    position: absolute;
+    background-image: url('images/HSPH-logo.png');
+    background-size: 170px 62px;
+    width: 170px;
+    height: 62px;
+}
