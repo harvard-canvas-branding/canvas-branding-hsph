@@ -1,11 +1,12 @@
-
 #header-inner{
     background-color: #595959 !important;
+    background-image: none !important;
 }
 
 
 #header{
     background-color: #595959 !important;
+    background-image: none !important;
 }
 
 .harvardLogo{
@@ -14,6 +15,7 @@
     bottom: 0;
     position: absolute;
     background-image: url('images/HSPH-logo.png') !important;
+    background-repeat: no-repeat !important;
     background-size: 170px 62px;
     width: 170px;
     height: 62px;
