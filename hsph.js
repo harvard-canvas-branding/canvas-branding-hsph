@@ -15,11 +15,6 @@ ga('send', 'pageview');
 	kscript.src = 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471';
 	document.getElementsByTagName('head')[0].appendChild(kscript);
   
-	var newscript = document.createElement('script');
-	newscript.type = 'text/javascript';
-	newscript.src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js';
-	document.getElementsByTagName('head')[0].appendChild(newscript);
-
 	// Poll for jQuery to come into existance
 	var checkReady = function(callback) {
 		if ( window.jQuery && $( ".kaltura-threeplay" ).length && typeof kWidget !== 'undefined' ) {
