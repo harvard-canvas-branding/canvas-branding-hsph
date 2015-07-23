@@ -14,7 +14,7 @@
     left: 16px;
     bottom: 0;
     position: absolute;
-    background-image: url('images/HSPH-logo.png') !important;
+    background-image: url('../img/HSPH-logo.png') !important;
     background-repeat: no-repeat !important;
     background-size: 170px 62px;
     width: 170px;
