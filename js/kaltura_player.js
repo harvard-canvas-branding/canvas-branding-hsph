@@ -1,12 +1,3 @@
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-64317003-1', 'auto');
-ga('require', 'displayfeatures');
-ga('require', 'linkid', 'linkid.js');
-ga('send', 'pageview');
 
 //Load jQuery library using plain JavaScript
 (function(){
@@ -14,7 +5,7 @@ ga('send', 'pageview');
 	kscript.type = 'text/javascript';
 	kscript.src = 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471';
 	document.getElementsByTagName('head')[0].appendChild(kscript);
-  
+
 	// Poll for jQuery to come into existance
 	var checkReady = function(callback) {
 		if ( window.jQuery && $( ".kaltura-threeplay" ).length && typeof kWidget !== 'undefined' ) {
@@ -28,12 +19,12 @@ ga('send', 'pageview');
 	checkReady(function($) {
 		$( '.kaltura-threeplay' ).each(function( index ) {
 			$( this ).replaceWith( '<div class="video" id="video' + index + '"><div class="kaltura-player-container"><!--  maintain 16/9 aspect ratio: --><div class="kaltura-player-container-absolute"><div id="kaltura_player" style="width:712px; height: 401px;"></div></div></div></div>' );
-			
+
 			mw.setConfig('EmbedPlayer.EnableIpadHTMLControls', false);
 			mw.setConfig('EmbedPlayer.WebKitPlaysInline', true);
 			kWidget.embed({
 				'targetId' : 'kaltura_player',
-				'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides. 
+				'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides.
 					'autoPlay': false
 				},
 				'wid': '_1446471',
@@ -62,7 +53,7 @@ ga('send', 'pageview');
 			  e.src = "//p3.3playmedia.com/p3.js"
 			  document.getElementById('p3-js-main-root').appendChild(e);
 			}
-			
+
 		});
 	});
 })();
