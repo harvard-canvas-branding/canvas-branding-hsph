@@ -1,12 +1,3 @@
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-64317003-1', 'auto');
-ga('require', 'displayfeatures');
-ga('require', 'linkid', 'linkid.js');
-ga('send', 'pageview');
 
 //Load jQuery library using plain JavaScript
 (function(){
@@ -27,6 +18,19 @@ ga('send', 'pageview');
 	// Start polling...
 	checkReady(function($) {
 		$( '.kaltura-threeplay' ).each(function( index ) {
+			$( this ).replaceWith( '<div class="video" id="video' + index + '"><div class="kaltura-player-container"><!--  maintain 16/9 aspect ratio: --><div class="kaltura-player-container-absolute"><div id="kaltura_player" style="width:712px; height: 401px;"></div></div></div></div>' );
+
+			mw.setConfig('EmbedPlayer.EnableIpadHTMLControls', false);
+			mw.setConfig('EmbedPlayer.WebKitPlaysInline', true);
+			kWidget.embed({
+				'targetId' : 'kaltura_player',
+				'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides.
+					'autoPlay': false
+				},
+				'wid': '_1446471',
+				'uiconf_id' : '30101351',
+				'entry_id' : $( this ).attr( "id" )
+			});
 
 			// lets see if we have a kaltura attribute
 			if ( $( this ).attr( "id" ) ) {
