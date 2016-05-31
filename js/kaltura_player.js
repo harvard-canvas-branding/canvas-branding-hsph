@@ -18,19 +18,6 @@
 	// Start polling...
 	checkReady(function($) {
 		$( '.kaltura-threeplay' ).each(function( index ) {
-			$( this ).replaceWith( '<div class="video" id="video' + index + '"><div class="kaltura-player-container"><!--  maintain 16/9 aspect ratio: --><div class="kaltura-player-container-absolute"><div id="kaltura_player" style="width:712px; height: 401px;"></div></div></div></div>' );
-
-			mw.setConfig('EmbedPlayer.EnableIpadHTMLControls', false);
-			mw.setConfig('EmbedPlayer.WebKitPlaysInline', true);
-			kWidget.embed({
-				'targetId' : 'kaltura_player',
-				'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides.
-					'autoPlay': false
-				},
-				'wid': '_1446471',
-				'uiconf_id' : '30101351',
-				'entry_id' : $( this ).attr( "id" )
-			});
 
 			// lets see if we have a kaltura attribute
 			if ( $( this ).attr( "id" ) ) {
