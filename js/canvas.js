@@ -21,14 +21,11 @@ ga('send', 'pageview');
  * @param string src Script source URL to be loaded.
  */ 
 function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-        var s;
-        s = document.createElement('script');
-        s.src = src;
-        s.onload = resolve;
-        s.onerror = reject;
-        document.head.appendChild(s);
-    });
+	var s = document.createElement('script');
+	s.type = 'text/javascript';
+	s.async = true;
+	s.src = src;
+	document.getElementsByTagName('head')[0].appendChild(s);
 }
 
 // add the akltura script to the head of our document.
