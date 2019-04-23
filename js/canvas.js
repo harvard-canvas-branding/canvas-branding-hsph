@@ -77,11 +77,12 @@ checkReady( function($) {
 			if (typeof p3_instances == "undefined") p3_instances = {};
 			if (!p3_instances["kaltura_player"]){
 				p3_instances["kaltura_player"] = {
-				file_id: $( this ).attr( "title" ),
-				player_type: "kaltura",
-				api_version: "simple",
-				project_id: "11439",
-				platform_integration: false  }
+					file_id: $( this ).attr( "title" ),
+					player_type: "kaltura",
+					api_version: "simple",
+					project_id: "11439",
+					platform_integration: false 
+				}
 			}
 			// attach the threeplay player to the Kaltura player. 
 			p3_instances["kaltura_player"]["transcript"] = {target:"transcript_" + $( this ).attr( "title" ),width:"712",height:"290",skin:"minimalist",can_collapse:true,progressive_tracking:true,can_print:true,can_download:true,download_format:"pdf"}
@@ -90,7 +91,7 @@ checkReady( function($) {
 				$( '#video' + index ).append( '<div id="p3-js-main-root"></div>' );
 				var e = document.createElement('script');
 				e.async = true;
-				e.src = "//p3.3playmedia.com/p3.js"
+				e.src = "//p3.3playmedia.com/p3.js";
 				document.getElementById('p3-js-main-root').appendChild(e);
 			}
 		}
@@ -112,9 +113,6 @@ function do_jqueryui() {
 	jQuery( document ).ready(function($) {
 		// Activate Tabs
 		$('#tabs').tabs();
-
-		// Activate Accordions.
-		$('.accordion-custom').accordion({heightStyle: "content"});
 	});
 }
 
