@@ -16,20 +16,13 @@ jobs:
       - run: npm install
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
-      - run:
-          name: Install dependencies
-          working_directory: /
-          command: |
-            apt-get -y -qq update
-            apt-get -y -qq install python3
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            python3 get-pip.py --user
       - run: mkdir build
       - run: cat js/*.js > build/theme.js
       - run: uglifyjs build/theme.js > build/theme.min.js
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
+      - run: apt-get -y install python3-pip
       - aws-s3/copy:
           from: build/theme.min.css
           to: 's3://hsph-canvas'
