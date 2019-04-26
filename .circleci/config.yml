@@ -16,6 +16,7 @@ jobs:
       - run: npm install
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
+      - run: mkdir build
       - run: cat js/*.js > build/theme.js
       - run: uglifyjs build/theme.js > build/theme.min.js
       - run: cat css/*.css > build/theme.css
