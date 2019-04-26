@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - run: rm -rf .git
+      - run: apt update && apt install awscli, python-pip
       - run: npm install
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
@@ -22,7 +23,6 @@ jobs:
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
-      - run: apt update && apt install awscli, python-pip
       - aws-s3/copy:
           from: build/theme.min.css
           to: 's3://hsph-canvas'
