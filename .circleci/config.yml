@@ -4,34 +4,40 @@
 #
 version: 2
 jobs:
-  build:
+  canvasbuild:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
+      - image: node:8.11.1
     working_directory: ~/repo
-
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
-      - run: yarn test
+      - run: rm -rf .git
+      - run: npm install
+      - run: npm install -g uglifycss
+      - run: npm install -g uglify-js
+      - run: cat js/*.js > build/theme.js
+      - run: uglifyjs build/theme.js > build/theme.min.js
+      - run: cat css/*.css > build/theme.css
+      - run: uglifycss build/theme.css > build/theme.min.css
+      - run: npm run production
+      - run: rm -rf node_modules
+      - aws-s3/copy:
+          from: build/theme.min.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.js
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.min.js
+          to: 's3://hsph-canvas'
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - canvasbuild:
+          context: org-global
+          filters:
+            branches:
+              - master
