@@ -21,7 +21,6 @@ jobs:
       - run: uglifyjs build/theme.js > build/theme.min.js
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
-      - run: npm run production
       - run: rm -rf node_modules
       - aws-s3/copy:
           from: build/theme.min.css
