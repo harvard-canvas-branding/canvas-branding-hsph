@@ -22,7 +22,7 @@ jobs:
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
-      - run: apt-get -y install python3-pip
+      - run: apt-update && apt-get -y install python3-pip
       - aws-s3/copy:
           from: build/theme.min.css
           to: 's3://hsph-canvas'
