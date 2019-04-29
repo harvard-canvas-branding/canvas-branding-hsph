@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2.1
+version: 2
 orbs:
   aws-s3: circleci/aws-s3@1.0.0
 jobs:
@@ -14,7 +14,6 @@ jobs:
       - checkout
       - run: rm -rf .git
       - run: pip install aws-cli
-jobs:
   canvasbuild:
     docker:
      - image: node:8.11.1
