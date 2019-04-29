@@ -8,43 +8,18 @@ orbs:
 jobs:
   canvasbuild:
     docker:
-      - image: circleci/python:3.7.3
-    working_directory: ~/repo
+     - image: 'circleci/python:2.7'
     steps:
       - checkout
       - run: rm -rf .git
-      - run: sudo apt-get install curl software-properties-common
-      - run: curl -sL https://deb.nodesource.com/setup_11.x | sudo bash -
-      - run: sudo apt-get install nodejs npm
-      - run: npm install
-      - run: sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
-      - run: npm install -g uglifycss
-      - run: npm install -g uglify-js
-      - run: mkdir build
-      - run: cat js/*.js > build/theme.js
-      - run: uglifyjs build/theme.js > build/theme.min.js
-      - run: cat css/*.css > build/theme.css
-      - run: uglifycss build/theme.css > build/theme.min.css
-      - run: rm -rf node_modules
-      - aws-s3/copy:
-          from: build/theme.min.css
-          to: 's3://hsph-canvas'
-      - aws-s3/copy:
-          from: build/theme.css
-          to: 's3://hsph-canvas'
-      - aws-s3/copy:
-          from: build/theme.js
-          to: 's3://hsph-canvas'
-      - aws-s3/copy:
-          from: build/theme.min.js
-          to: 's3://hsph-canvas'
+      - run: pip install nodejs
 workflows:
   version: 2
-  build-deploy:
+  build-stage:
     jobs:
       - canvasbuild:
           context: org-global
           filters:
             branches:
-              only: 
+              only:
                 - CAN-5
