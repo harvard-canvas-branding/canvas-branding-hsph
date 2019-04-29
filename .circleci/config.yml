@@ -20,13 +20,7 @@ jobs:
       - run: uglifyjs build/theme.js > build/theme.min.js
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
-      - run: rm -rf node_modules   
-workflows:
-  version: 2
-  build-stage:
-    jobs:   
-      - canvasbuild:
-    steps:
+      - run: rm -rf node_modules
       - aws-s3/copy:
           from: build/theme.min.css
           to: 's3://hsph-canvas'
@@ -39,8 +33,13 @@ workflows:
       - aws-s3/copy:
           from: build/theme.min.js
           to: 's3://hsph-canvas'
+workflows:
+  version: 2
+  build-stage:
+    jobs:   
+      - canvasbuild:
           context: org-global
-      filters:
-        branches:
-          only:
-           - CAN-5 
+          filters:
+            branches:
+              only:
+              - CAN-5
