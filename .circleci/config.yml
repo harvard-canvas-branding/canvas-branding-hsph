@@ -14,6 +14,7 @@ jobs:
       - checkout
       - run: rm -rf .git
       - run: pip install --user nodejs npm
+      - run: npm run production
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
       - run: mkdir build
