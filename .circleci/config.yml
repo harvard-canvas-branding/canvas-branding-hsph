@@ -6,14 +6,6 @@ version: 2
 orbs:
   aws-s3: circleci/aws-s3@1.0.0
 jobs:
-  pythonbuild:
-    docker:
-     - image: 'circleci/python:3.7.3'
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run: rm -rf .git
-      - run: pip install aws-cli
   canvasbuild:
     docker:
      - image: node:8.11.1
@@ -29,19 +21,44 @@ jobs:
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
+  pythonbuild:
+    docker:
+     - image: 'circleci/python:3.7.3'
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: rm -rf .git
+          name: AWS Setup Environment Variables
+          command: |
+            echo 'export AWS_ACCESS_KEY_ID="$HSPH_CODEDEPLOY_AWS_KEY"' >> $BASH_ENV
+            echo 'export AWS_SECRET_ACCESS_KEY="$HSPH_CODEDEPLOY_AWS_SECRET"' >> $BASH_ENV
+            source $BASH_ENV
+      - aws-s3/copy:
+          from: build/theme.min.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.js
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.min.js
+          to: 's3://hsph-canvas'   
 workflows:
   version: 2
   build-stage:
-    jobs:
-      - pythonbuild:
-          context: org-global
-          filters:
-            branches:
-              only:
-                - CAN-5      
+    jobs:   
       - canvasbuild:
           context: org-global
           filters:
             branches:
               only:
                 - CAN-5
+      - pythonbuild:
+          context: org-global
+          filters:
+            branches:
+              only:
+                - CAN-5 
+                
