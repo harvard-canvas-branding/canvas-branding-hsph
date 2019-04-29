@@ -9,10 +9,18 @@ jobs:
   canvasbuild:
     docker:
      - image: 'circleci/python:3.7.3'
+    working_directory: ~/repo
     steps:
       - checkout
       - run: rm -rf .git
-      - run: pip install --user nodejs
+      - run: pip install --user nodejs npm
+      - run: npm install -g uglifycss
+      - run: npm install -g uglify-js
+      - run: mkdir build
+      - run: cat js/*.js > build/theme.js
+      - run: uglifyjs build/theme.js > build/theme.min.js
+      - run: cat css/*.css > build/theme.css
+      - run: uglifycss build/theme.css > build/theme.min.css      
 workflows:
   version: 2
   build-stage:
