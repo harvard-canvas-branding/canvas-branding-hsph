@@ -3,8 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
-orbs:
-  aws-s3: circleci/aws-s3@1.0.0
 jobs:
   canvasbuild:
     docker:
@@ -22,6 +20,8 @@ jobs:
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
   pythonbuild:
+  orbs:
+    aws-s3: circleci/aws-s3@1.0.0
     docker:
      - image: 'circleci/python:3.7.3'
     working_directory: ~/repo
