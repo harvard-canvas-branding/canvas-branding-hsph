@@ -13,13 +13,13 @@ jobs:
     steps:
       - checkout
       - run: rm -rf .git
-      - run: npm install -g uglifycss
-      - run: npm install -g uglify-js
-      - run: mkdir build
-      - run: cat js/*.js > build/theme.js
-      - run: uglifyjs build/theme.js > build/theme.min.js
-      - run: cat css/*.css > build/theme.css
-      - run: uglifycss build/theme.css > build/theme.min.css
+      - run: sudo npm install -g uglifycss
+      - run: sudo npm install -g uglify-js
+      - run: sudo mkdir build
+      - run: sudo cat js/*.js > build/theme.js
+      - run: sudo uglifyjs build/theme.js > build/theme.min.js
+      - run: sudo cat css/*.css > build/theme.css
+      - run: sudo uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
       - aws-s3/copy:
           from: build/theme.min.css
