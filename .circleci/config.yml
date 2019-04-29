@@ -6,23 +6,24 @@ version: 2.1
 orbs:
     aws-s3: circleci/aws-s3@1.0.0
 jobs:
-  s3copybuild:
+  sssbuild:
     docker:
-      - image: 'circleci/python:2.7'
+     - image: 'circleci/python:2.7'
+    working_directory: ~/repo  
     steps:
-    - checkout
-    - aws-s3/copy:
-        from: build/theme.min.css
-        to: 's3://hsph-canvas'
-    - aws-s3/copy:
-        from: build/theme.css
-        to: 's3://hsph-canvas'
-    - aws-s3/copy:
-        from: build/theme.js
-        to: 's3://hsph-canvas'
-    - aws-s3/copy:
-        from: build/theme.min.js
-        to: 's3://hsph-canvas'
+      - checkout
+      - aws-s3/copy:
+          from: build/theme.min.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.js
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.min.js
+          to: 's3://hsph-canvas'
   canvasbuild:
     docker:
      - image: node:8.11.1
@@ -42,7 +43,7 @@ workflows:
   version: 2
   build-stage:
     jobs:   
-      - s3copybuild:
+      - ssscopybuild:
         context: org-global
         requires:
           - canvasbuild
