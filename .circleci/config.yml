@@ -8,7 +8,7 @@ orbs:
 jobs:
   canvasbuild:
     docker:
-     - image: node:8.11.1
+     - image: circleci/node:9.11.1
     working_directory: ~/repo
     steps:
       - checkout
@@ -21,6 +21,18 @@ jobs:
       - run: cat css/*.css > build/theme.css
       - run: uglifycss build/theme.css > build/theme.min.css
       - run: rm -rf node_modules
+      - aws-s3/copy:
+          from: build/theme.min.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.css
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.js
+          to: 's3://hsph-canvas'
+      - aws-s3/copy:
+          from: build/theme.min.js
+          to: 's3://hsph-canvas'
 workflows:
   version: 2
   build-stage:
@@ -31,17 +43,4 @@ workflows:
             branches:
               only:
               - CAN-5
-      - deploy2s3:
-          steps:
-           - aws-s3/copy:
-             from: build/theme.min.css
-             to: 's3://hsph-canvas'
-           - aws-s3/copy:
-             from: build/theme.css
-             to: 's3://hsph-canvas'
-           - aws-s3/copy:
-             from: build/theme.js
-             to: 's3://hsph-canvas'
-           - aws-s3/copy:
-             from: build/theme.min.js
-             to: 's3://hsph-canvas'
+ 
