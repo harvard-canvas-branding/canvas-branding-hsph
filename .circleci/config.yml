@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run: rm -rf .git
-      - run: npm install --python=python2.7
+      - run: npm install --python=python2.7.9
       - run: pip install awscli --upgrade --user
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
