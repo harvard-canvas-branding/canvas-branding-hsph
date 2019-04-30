@@ -13,8 +13,15 @@ jobs:
     steps:
       - checkout
       - run: rm -rf .git
-      - run: npm install --python=python2.7.16
-      - run: pip install awscli --upgrade --user
+      - run:
+          name: Install dependencies
+          working_directory: /
+          command: |
+            apt-get -y -qq update
+            apt-get -y -qq install python3.4-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            python3.4 get-pip.py --user
+            pip install awscli --upgrade --user
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
       - run: mkdir build
