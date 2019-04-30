@@ -33,8 +33,6 @@ jobs:
           paths:
             - ./
   sendtoaws:
-    docker:
-      - image: circleci/aws-s3@1.0.0
     working_directory: /tmp/workspace
     steps:
       - *attach_workspace
