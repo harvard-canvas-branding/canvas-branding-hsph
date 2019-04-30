@@ -66,7 +66,7 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-5
+              - master
       - sendtoaws:
           requires:
             - canvasbuild
@@ -74,4 +74,4 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-5
+              - master
