@@ -1,14 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules",
-    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --hot",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules",
-    "eslint": "eslint resources/assets/js/** webpack.mix.js --fix --ext .js"
-  },
-  "devDependencies": {
-    "jquery": "^3.2"
+    "eslint": "eslint js/** webpack.mix.js --fix --ext .js"
   },
   "dependencies": {
     "eslint": "^5.10.0",
