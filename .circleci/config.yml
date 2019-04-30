@@ -41,8 +41,8 @@ jobs:
       - run:
           name: AWS Setup Environment Variables
           command: |
-            echo 'export AWS_ACCESS_KEY_ID="$LABPOINT_CODEDEPLOY_AWS_KEY"' >> $BASH_ENV
-            echo 'export AWS_SECRET_ACCESS_KEY="$LABPOINT_CODEDEPLOY_AWS_SECRET"' >> $BASH_ENV
+            echo 'export AWS_ACCESS_KEY_ID="$CANVAS_S3_AWS_KEY"' >> $BASH_ENV
+            echo 'export AWS_SECRET_ACCESS_KEY="$CANVAS_S3_AWS_SECRET"' >> $BASH_ENV
             echo 'export AWS_REGION="us-east-1"' >> $BASH_ENV
             source $BASH_ENV
       - aws-s3/copy:
