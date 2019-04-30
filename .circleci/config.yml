@@ -13,16 +13,6 @@ jobs:
     steps:
       - checkout
       - run: rm -rf .git
-      - run: printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
-      - run:
-          name: Install dependencies
-          working_directory: /
-          command: |
-            apt-get -y -qq update
-            apt-get -y -qq install python3
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            python3 get-pip.py --user
-            pip install awscli --upgrade --user
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
       - run: mkdir build
