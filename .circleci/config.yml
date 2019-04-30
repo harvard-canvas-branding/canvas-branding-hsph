@@ -19,9 +19,9 @@ jobs:
           working_directory: /
           command: |
             apt-get -y -qq update
-            apt-get -y -qq install python3.7.3
+            apt-get -y -qq install python3
             curl -O https://bootstrap.pypa.io/get-pip.py
-            python3.7.3 get-pip.py --user
+            python3 get-pip.py --user
             pip install awscli --upgrade --user
       - run: npm install -g uglifycss
       - run: npm install -g uglify-js
