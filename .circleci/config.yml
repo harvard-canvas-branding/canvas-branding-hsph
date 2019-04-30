@@ -38,6 +38,12 @@ jobs:
     working_directory: /tmp/workspace
     steps:
       - *attach_workspace
+      - run:
+          name: AWS Setup Environment Variables
+          command: |
+            echo 'export AWS_ACCESS_KEY_ID="$LABPOINT_CODEDEPLOY_AWS_KEY"' >> $BASH_ENV
+            echo 'export AWS_SECRET_ACCESS_KEY="$LABPOINT_CODEDEPLOY_AWS_SECRET"' >> $BASH_ENV
+            source $BASH_ENV
       - aws-s3/copy:
           from: build/theme.min.css
           to: 's3://hsph-canvas'
