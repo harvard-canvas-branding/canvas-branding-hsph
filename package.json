@@ -1,12 +1,14 @@
 {
   "private": true,
   "scripts": {
+    "production": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "eslint": "eslint js/** --fix --ext .js"
   },
   "dependencies": {
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.0",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "webpack": "^4.27.1"
   },
   "name": "@harvardchanschool/canvas-branding-hsph",
   "description": "",
