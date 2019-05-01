@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "eslint": "eslint js/** webpack.mix.js --fix --ext .js"
+    "eslint": "eslint js/** --fix --ext .js"
   },
   "dependencies": {
     "eslint": "^5.10.0",
