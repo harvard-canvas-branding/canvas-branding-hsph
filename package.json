@@ -1,14 +1,5 @@
 {
   "private": true,
-  "scripts": {
-    "production": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "eslint": "eslint js/** --fix --ext .js"
-  },
-  "dependencies": {
-    "eslint": "^5.10.0",
-    "eslint-loader": "^2.1.0",
-    "jquery-ui": "^1.12.1"
-  },
   "name": "@harvardchanschool/canvas-branding-hsph",
   "description": "Custom Canvas Branding code for HSPH",
   "version": "1.0.0",
@@ -26,6 +17,12 @@
     "url": "https://github.com/HarvardChanSchool/canvas-branding-hsph/issues"
   },
   "main": "webpack.config.js",
+  "keywords": [],
+  "dependencies": {
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.0",
+    "jquery-ui": "^1.12.1"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -36,5 +33,8 @@
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
   },
-  "keywords": []
+  "scripts": {
+    "production": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "eslint": "eslint js/** --fix --ext .js"
+  }
 }
