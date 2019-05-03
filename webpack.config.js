@@ -1,20 +1,37 @@
-let mix = require('laravel-mix');
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+var path = require('path');
+
+module.exports = {
+  entry: './assets/js/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  // Add the JSHint loader
+  module: {
+    rules: [{
+      test: /\.js$/, // Run the loader on all .js files
+      exclude: /node_modules/, // ignore all files in the node_modules folder
+      use: 'jshint-loader'
+    }]
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 mix.autoload({
-    'jquery': ['$', 'window.jQuery', 'jQuery', 'window.$', 'jquery', 'window.jquery'],
-    'popper.js': ['Popper', 'popper'],
-    'xlsx': ['XLSX','xlsx'],
-    'file-saver': ['saveAs', 'SaveAs']
+    'jquery': ['$', 'window.jQuery', 'jQuery', 'window.$', 'jquery', 'window.jquery']
 });
 
 mix.webpackConfig({
