@@ -34,7 +34,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "production": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "webpack --mode production",
     "eslint": "eslint js/** --fix --ext .js"
   }
 }
