@@ -21,9 +21,6 @@
 
     // add the akltura script to the head of our document.
     loadScript( 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471' );
-    if( typeof jQuery.ui === 'undefined' ) {
-        loadScript( 'https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' );
-    }
 
     // Poll for jQuery to come into existance.
     var checkReady = function(callback) {
