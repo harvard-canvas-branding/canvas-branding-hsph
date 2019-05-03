@@ -1,11 +1,10 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './js/canvas.js',
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -16,15 +15,13 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader']
-      // }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader'
+        }
+      }
     ]
-  },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
+  }
 }

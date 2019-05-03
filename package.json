@@ -19,8 +19,6 @@
   "main": "webpack.config.js",
   "keywords": [],
   "dependencies": {
-    "eslint": "^5.10.0",
-    "eslint-loader": "^2.1.0",
     "jquery-ui": "^1.12.1"
   },
   "devDependencies": {
@@ -31,7 +29,9 @@
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2"
   },
   "scripts": {
     "production": "webpack --mode production",
