@@ -11,7 +11,7 @@
     "webpack": "^4.27.1"
   },
   "name": "@harvardchanschool/canvas-branding-hsph",
-  "description": "",
+  "description": "Custom Canvas Branding code for HSPH",
   "version": "1.0.0",
   "directories": {
     "test": "tests"
@@ -22,5 +22,11 @@
   },
   "author": "HSPH Webteam",
   "license": "unlicenced",
-  "homepage": "https://hsph.harvard.edu/information-technology/"
+  "homepage": "https://hsph.harvard.edu/information-technology/",
+  "bugs": {
+    "url": "https://github.com/HarvardChanSchool/canvas-branding-hsph/issues"
+  },
+  "main": "webpack.config.js",
+  "devDependencies": {},
+  "keywords": []
 }
