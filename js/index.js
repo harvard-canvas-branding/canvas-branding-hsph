@@ -13,7 +13,7 @@ const hsphGoogleAnalytics = () => {
 hsphGoogleAnalytics();
 
 const hsphKalturaThreePlay = () => {
-    // Load custom tracking code lazily, so it's non-blocking.
+    // Load the kaltura threeplay files, so it's non-blocking.
     import( './canvas.js' ).then( ( canvas ) => canvas.init() );
 };
 
@@ -23,6 +23,6 @@ var hsphLoadJS = require('loadjs');
 hsphLoadJS(['https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471'], 'hsphKaltura');
 
 loadjs.ready('hsphKaltura', function() {
-    // Start the app through its main entry point.
+    // Once the Kaltura piece has been loaded we need to start the kaltura code.
     hsphKalturaThreePlay();  
 });
