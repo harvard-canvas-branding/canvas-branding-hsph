@@ -3,38 +3,13 @@
  * DO NOT modify this file in any way without express written permssion from the
  * HSPH webteam. Permission can be obtained by emailing webteam@hsph.harvard.edu
  */
+const hsphJquery = require( "jquery jquery-ui" );
 
-(function() {
+import {hsphKaltura} from 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471';
 
-    /**
-	 * Script loader function.
-	 *
-	 * @param string src Script source URL to be loaded.
-	 */
-    function loadScript(src) {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = src;
-        document.getElementsByTagName('head')[0].appendChild(s);
-    }
-
-    // add the akltura script to the head of our document.
-    loadScript( 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471' );
-
-    // Poll for jQuery to come into existance.
-    var checkReady = function(callback) {
-        if ( window.jQuery && $( '.kaltura-threeplay' ).length && typeof kWidget !== 'undefined' ) {
-            callback(jQuery);
-        } else {
-            window.setTimeout(function() {
-                checkReady(callback);
-            }, 100);
-        }
-    };
-
-    // jQuery Has been loaded, we can now run the scripts.
-    checkReady( function($) {
+export const init = () => {
+    // Check that we are ready to go.
+    jQuery( document ).ready(function($) {
         // Jquery has been loaded so we can now use it.
         $( '.kaltura-threeplay' ).each(function( index ) {
 
@@ -85,26 +60,8 @@
                 }
             }
         });
+
+        // Activate Tabs
+        $('#tabs, .tabs').tabs();
     });
-
-    // now lets look at jQuery UI it needs to be loaded and load complete.
-    function checkJqueryUI() {
-        if (typeof jQuery.ui != 'undefined') {
-            do_jqueryui();
-        } else {
-            window.setTimeout( checkJqueryUI, 50 );
-        }
-    }
-
-    // jQuery UI has loaded lets run our scripts.
-    function do_jqueryui() {
-        // Check that we are ready to go.
-        jQuery( document ).ready(function($) {
-            // Activate Tabs
-            $('#tabs, .tabs').tabs();
-        });
-    }
-
-    // run the jquery UI checks.
-    checkJqueryUI();
-})();
+};
