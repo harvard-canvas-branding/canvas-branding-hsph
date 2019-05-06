@@ -20,7 +20,8 @@
   "keywords": [],
   "dependencies": {
     "jquery": "^3.2",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "loadjs": "^3.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

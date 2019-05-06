@@ -3,9 +3,8 @@
  * DO NOT modify this file in any way without express written permssion from the
  * HSPH webteam. Permission can be obtained by emailing webteam@hsph.harvard.edu
  */
-const hsphJquery = require( "jquery jquery-ui" );
-
-import {hsphKaltura} from 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471';
+const hsphJquery = require( "jquery" );
+const hsphJqueryUI = require( "jquery-ui" );
 
 export const init = () => {
     // Check that we are ready to go.
