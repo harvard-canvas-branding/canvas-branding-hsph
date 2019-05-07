@@ -6,7 +6,7 @@ var hsphLoadJS = require('loadjs');
 
 const hsphKalturaThreePlay = () => {
     // Check that we are ready to go.
-    hsphJquery( document ).ready(function($) {
+    jQuery( document ).ready(function($) {
         // Jquery has been loaded so we can now use it.
         $( '.kaltura-threeplay' ).each(function( index ) {
 
