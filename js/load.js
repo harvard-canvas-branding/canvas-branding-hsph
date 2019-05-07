@@ -17,14 +17,14 @@ function hsphloadScript(src) {
 	document.getElementsByTagName('head')[0].appendChild(s);
 }
 
-if( window.location.href.indexOf( 'canvas.harvard.edu' ) > -1 ) {
-	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/manifest.js' );
-	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/vendor.js' );
-	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/app.js' );
-} else {
+if( window.location.href.indexOf( 'harvard.test.instructure.com' ) > -1 ) {
 	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/manifest.js' );
 	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/vendor.js' );
 	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/app.js' );
+} else {
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/manifest.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/vendor.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/app.js' );
 }
 
 // add the akltura script to the head of our document.
