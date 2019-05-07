@@ -4,7 +4,7 @@
   },
   "6M8w": function M8w(a, t, i) {
     (function (a) {
-      i("EVdn"), i("MIQu");
+      i("MIQu");
       var t = i("g6dt");
       t(["https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471"], "hsphKaltura"), loadjs.ready("hsphKaltura", function () {
         a(document).ready(function (a) {

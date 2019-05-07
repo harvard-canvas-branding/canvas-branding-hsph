@@ -22,3 +22,4 @@ function hsphloadScript(src) {
 hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/manifest.js' );
 hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/vendor.js' );
 hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/app.js' );
+hsphloadScript( 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471' );

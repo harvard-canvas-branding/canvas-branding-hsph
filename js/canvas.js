@@ -1,4 +1,3 @@
-const $ = require( 'jquery' );
 const hsphJqueryUI = require( 'jquery-ui' );
 
 // Load Js for the external kaltura.
