@@ -80,7 +80,7 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-8
+              - master
       - send2awsstage:
           requires:
             - canvasbuild
@@ -88,7 +88,7 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-8
+              - master
   build-prod:
     jobs:
       - canvasbuild:
