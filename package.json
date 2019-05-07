@@ -36,10 +36,10 @@
     "webpack-cli": "^3.3.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "production": "webpack --progress --mode=production",
-    "build": "webpack  --progress --mode=development",
-    "watch": "webpack --progress --watch",
-    "eslint": "eslint js/** --fix --ext .js"
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "eslint": "eslint resources/assets/js/** webpack.mix.js --fix --ext .js"
   }
 }
