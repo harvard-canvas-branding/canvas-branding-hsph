@@ -1,8 +1,5 @@
 const hsphJqueryUI = require( 'jquery-ui' );
 
-// Load Js for the external kaltura.
-var hsphLoadJS = require('loadjs');
-
 const hsphKalturaThreePlay = () => {
     // Check that we are ready to go.
     jQuery( document ).ready(function($) {
@@ -62,9 +59,4 @@ const hsphKalturaThreePlay = () => {
     });
 };
 
-hsphLoadJS(['https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471'], 'hsphKaltura');
-
-loadjs.ready('hsphKaltura', function() {
-    // Once the Kaltura piece has been loaded we need to start the kaltura code.
-    hsphKalturaThreePlay();
-});
+hsphKalturaThreePlay();

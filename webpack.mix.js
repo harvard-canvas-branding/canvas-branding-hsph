@@ -22,13 +22,12 @@ mix.webpackConfig({
 mix.js([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/jquery-ui/ui/widgets/tabs.js',
-    'node_modules/loadjs/dist/loadjs.min.js',
     'js/google.js',
     'js/canvas.js'
 ], 'public/js/app.js');
 
 // Extract vendor modules into vendor.js
-mix.extract(['jquery', 'jquery-ui', 'loadjs']);
+mix.extract(['jquery', 'jquery-ui']);
 
 // Running babel for old browser support
 mix.babel('public/js/manifest.js', 'public/js/manifest.js');
