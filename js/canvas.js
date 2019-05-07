@@ -1,4 +1,4 @@
-const hsphJquery = require( 'jquery' );
+const $ = require( 'jquery' );
 const hsphJqueryUI = require( 'jquery-ui' );
 
 // Load Js for the external kaltura.
@@ -6,7 +6,7 @@ var hsphLoadJS = require('loadjs');
 
 const hsphKalturaThreePlay = () => {
     // Check that we are ready to go.
-    jQuery( document ).ready(function($) {
+    hsphJquery( document ).ready(function($) {
         // Jquery has been loaded so we can now use it.
         $( '.kaltura-threeplay' ).each(function( index ) {
 
