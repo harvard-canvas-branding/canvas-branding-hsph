@@ -4,8 +4,21 @@
  * HSPH webteam. Permission can be obtained by emailing webteam@hsph.harvard.edu
  */
 
-var hsphCanvas = document.createElement('script');
-hsphCanvas.type = 'text/javascript';
-hsphCanvas.async = true;
-hsphCanvas.src = 'https://s3.amazonaws.com/hsph-canvas/app.js';
-document.getElementsByTagName('head')[0].appendChild(hsphCanvas);
+
+ /**
+ * Script loader function.
+ * 
+ * @param string src Script source URL to be loaded.
+ */ 
+function hsphloadScript(src) {
+	var s = document.createElement('script');
+	s.type = 'text/javascript';
+	s.async = true;
+	s.src = src;
+	document.getElementsByTagName('head')[0].appendChild(s);
+}
+
+// add the akltura script to the head of our document.
+hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/manifest.js' );
+hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/vendor.js' );
+hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/app.js' );
