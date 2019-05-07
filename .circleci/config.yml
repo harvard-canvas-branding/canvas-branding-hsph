@@ -42,13 +42,13 @@ jobs:
             source $BASH_ENV
       - aws-s3/copy:
           from: public/js/app.js
-          to: 's3://hsph-canvas/dev'
+          to: 's3://hsph-canvas/dev/app.js'
       - aws-s3/copy:
           from: public/js/manifest.js
-          to: 's3://hsph-canvas/dev'
+          to: 's3://hsph-canvas/dev/manifest.js'
       - aws-s3/copy:
           from: public/js/vendor.js
-          to: 's3://hsph-canvas/dev'
+          to: 's3://hsph-canvas/dev/vendor.js'
   send2awsprod:
     docker:
       - image: circleci/python:2.7
@@ -64,13 +64,13 @@ jobs:
             source $BASH_ENV
       - aws-s3/copy:
           from: public/js/app.js
-          to: 's3://hsph-canvas/prod'
+          to: 's3://hsph-canvas/prod/app.js'
       - aws-s3/copy:
           from: public/js/manifest.js
-          to: 's3://hsph-canvas/prod'
+          to: 's3://hsph-canvas/prod/manifest.js'
       - aws-s3/copy:
           from: public/js/vendor.js
-          to: 's3://hsph-canvas/prod'
+          to: 's3://hsph-canvas/prod/vendor.js'
 workflows:
   version: 2
   build-stage:
