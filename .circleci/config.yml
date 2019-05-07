@@ -58,7 +58,7 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-7-Laravel-mix
+              - master
       - sendtoaws:
           requires:
             - canvasbuild
@@ -66,4 +66,4 @@ workflows:
           filters:
             branches:
               only:
-              - CAN-7-Laravel-mix
+              - master
