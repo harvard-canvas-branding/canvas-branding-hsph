@@ -15,26 +15,16 @@ mix.autoload({
 });
 
 mix.webpackConfig({
-    module: {
-        rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'eslint-loader',
-                options: {
-                    fix: true
-                }
-            }
-        ]
-    }
+
 });
 
 // Combine and minify JavaScript
 mix.js([
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/jquery.easing/jquery.easing.js',
-    'node_modules/loadjs/jquery.easing.js',
-    'js/index.js'
+    'node_modules/jquery-ui/ui/widgets/tabs.js',
+    'node_modules/loadjs/dist/loadjs.min.js',
+    'js/google.js',
+    'js/canvas.js'
 ], 'public/js/app.js');
 
 // Extract vendor modules into vendor.js

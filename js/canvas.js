@@ -1,7 +1,10 @@
-const hsphJquery = require( "jquery" );
-const hsphJqueryUI = require( "jquery-ui" );
+const hsphJquery = require( 'jquery' );
+const hsphJqueryUI = require( 'jquery-ui' );
 
-export const init = () => {
+// Load Js for the external kaltura.
+var hsphLoadJS = require('loadjs');
+
+const hsphKalturaThreePlay = () => {
     // Check that we are ready to go.
     jQuery( document ).ready(function($) {
         // Jquery has been loaded so we can now use it.
@@ -59,3 +62,10 @@ export const init = () => {
         $('#tabs, .tabs').tabs();
     });
 };
+
+hsphLoadJS(['https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471'], 'hsphKaltura');
+
+loadjs.ready('hsphKaltura', function() {
+    // Once the Kaltura piece has been loaded we need to start the kaltura code.
+    hsphKalturaThreePlay();
+});
