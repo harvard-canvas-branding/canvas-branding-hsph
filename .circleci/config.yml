@@ -20,13 +20,7 @@ jobs:
       - *attach_workspace
       - checkout
       - run: rm -rf .git
-      - run: npm install -g uglifycss
-      - run: npm install -g uglify-js
-      - run: mkdir build
-      - run: cat js/*.js > build/theme.js
-      - run: uglifyjs build/theme.js > build/theme.min.js
-      - run: cat css/*.css > build/theme.css
-      - run: uglifycss build/theme.css > build/theme.min.css
+      - run: npm run production
       - run: rm -rf node_modules
       - persist_to_workspace:
           root: *workspace_root
@@ -46,16 +40,13 @@ jobs:
             echo 'export AWS_REGION="us-east-1"' >> $BASH_ENV
             source $BASH_ENV
       - aws-s3/copy:
-          from: build/theme.min.css
+          from: public/js/app.js
           to: 's3://hsph-canvas'
       - aws-s3/copy:
-          from: build/theme.css
+          from: public/js/manifest.js
           to: 's3://hsph-canvas'
       - aws-s3/copy:
-          from: build/theme.js
-          to: 's3://hsph-canvas'
-      - aws-s3/copy:
-          from: build/theme.min.js
+          from: public/js/vendor.js
           to: 's3://hsph-canvas'
 workflows:
   version: 2
