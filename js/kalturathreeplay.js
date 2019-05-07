@@ -1,5 +1,3 @@
-const hsphJqueryUI = require( 'jquery-ui' );
-
 const hsphKalturaThreePlay = () => {
     // Check that we are ready to go.
     jQuery( document ).ready(function($) {
@@ -53,9 +51,6 @@ const hsphKalturaThreePlay = () => {
                 }
             }
         });
-
-        // Activate Tabs
-        $('#tabs, .tabs').tabs();
     });
 };
 

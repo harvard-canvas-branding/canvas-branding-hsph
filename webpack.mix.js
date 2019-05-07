@@ -25,7 +25,8 @@ mix.js([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/jquery-ui/ui/widgets/tabs.js',
     'js/google.js',
-    'js/canvas.js'
+    'js/kalturathreeplay.js',
+    'js/uitabs.js'
 ], 'public/js/app.js');
 
 // Extract vendor modules into vendor.js
