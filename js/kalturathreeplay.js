@@ -9,8 +9,10 @@ const hsphKalturaThreePlay = () => {
                 $( this ).replaceWith( '<div class="video" id="video' + index + '"><div class="kaltura-player-container"><!--  maintain 16/9 aspect ratio: --><div class="kaltura-player-container-absolute"><div id="kaltura_player" style="width:712px; height: 401px;"></div></div></div></div>' );
 
                 // Kwidget Embed code to load the kaltura player.
+                /* global mw:true */
                 mw.setConfig('EmbedPlayer.EnableIpadHTMLControls', false);
                 mw.setConfig('EmbedPlayer.WebKitPlaysInline', true);
+                /* global kWidget:true */
                 kWidget.embed({
                     'targetId' : 'kaltura_player',
                     'flashvars':{ // flashvars allows you to set runtime uiVar configuration overrides.
@@ -26,9 +28,12 @@ const hsphKalturaThreePlay = () => {
 
             // Now that we have loaded the kaltura player we can also load threeplay.
             if ( $( this ).attr( 'title' ) ) {
+                /* global p3_api_key:true */
                 p3_api_key = '';
+                /* global p3_window_wait:true */
                 p3_window_wait = false;
                 $( '#video' + index ).append( '<div id="transcript_' + $( this ).attr( 'title' ) + '"></div>');
+                /* global p3_instances:true */
                 if (typeof p3_instances == 'undefined') p3_instances = {};
                 if (!p3_instances['kaltura_player']){
                     p3_instances['kaltura_player'] = {
@@ -40,6 +45,7 @@ const hsphKalturaThreePlay = () => {
                     }
                 }
                 // attach the threeplay player to the Kaltura player.
+                /* global p3_is_loading:true */
                 p3_instances['kaltura_player']['transcript'] = {target:'transcript_' + $( this ).attr( 'title' ), width:'712', height:'290', skin:'minimalist', can_collapse:true, progressive_tracking:true, can_print:true, can_download:true, download_format:'pdf'}
                 if (typeof p3_is_loading == 'undefined' || (!p3_is_loading)) {
                     p3_is_loading = true;
