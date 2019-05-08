@@ -1,4 +1,4 @@
-const hsphKalturaThreePlay = () => {
+function hsphKalturaThreePlay() {
     // Check that we are ready to go.
     jQuery( document ).ready(function($) {
         // Jquery has been loaded so we can now use it.
@@ -58,6 +58,6 @@ const hsphKalturaThreePlay = () => {
             }
         });
     });
-};
+}
 
 hsphKalturaThreePlay();
