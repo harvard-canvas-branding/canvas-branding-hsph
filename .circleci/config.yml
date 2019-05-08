@@ -27,7 +27,7 @@ jobs:
           root: *workspace_root
           paths:
             - ./
-  sendtoaws:
+  send2awsstage:
     docker:
       - image: circleci/python:2.7
     working_directory: /tmp/workspace
@@ -42,24 +42,46 @@ jobs:
             source $BASH_ENV
       - aws-s3/copy:
           from: public/js/app.js
-          to: 's3://hsph-canvas'
+          to: 's3://hsph-canvas/dev/app.js'
       - aws-s3/copy:
           from: public/js/manifest.js
-          to: 's3://hsph-canvas'
+          to: 's3://hsph-canvas/dev/manifest.js'
       - aws-s3/copy:
           from: public/js/vendor.js
-          to: 's3://hsph-canvas'
+          to: 's3://hsph-canvas/dev/vendor.js'
+  send2awsprod:
+    docker:
+      - image: circleci/python:2.7
+    working_directory: /tmp/workspace
+    steps:
+      - *attach_workspace
+      - run:
+          name: AWS Setup Environment Variables
+          command: |
+            echo 'export AWS_ACCESS_KEY_ID="$CANVAS_S3_AWS_KEY"' >> $BASH_ENV
+            echo 'export AWS_SECRET_ACCESS_KEY="$CANVAS_S3_AWS_SECRET"' >> $BASH_ENV
+            echo 'export AWS_REGION="us-east-1"' >> $BASH_ENV
+            source $BASH_ENV
+      - aws-s3/copy:
+          from: public/js/app.js
+          to: 's3://hsph-canvas/prod/app.js'
+      - aws-s3/copy:
+          from: public/js/manifest.js
+          to: 's3://hsph-canvas/prod/manifest.js'
+      - aws-s3/copy:
+          from: public/js/vendor.js
+          to: 's3://hsph-canvas/prod/vendor.js'
 workflows:
   version: 2
   build-stage:
-    jobs:   
+    jobs:
       - canvasbuild:
           context: org-global
           filters:
             branches:
               only:
               - master
-      - sendtoaws:
+      - send2awsstage:
           requires:
             - canvasbuild
           context: org-global
@@ -67,3 +89,20 @@ workflows:
             branches:
               only:
               - master
+  build-prod:
+    jobs:
+      - canvasbuild:
+          context: org-global
+          filters:
+            branches:
+              only:
+              - master
+      - send2awsprod:
+          requires:
+            - canvasbuild
+          context: org-global
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/ 

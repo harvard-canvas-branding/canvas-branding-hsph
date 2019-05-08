@@ -17,8 +17,15 @@ function hsphloadScript(src) {
 	document.getElementsByTagName('head')[0].appendChild(s);
 }
 
+if( window.location.href.indexOf( 'harvard.test.instructure.com' ) > -1 ) {
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/manifest.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/vendor.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/dev/app.js' );
+} else {
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/manifest.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/vendor.js' );
+	hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/prod/app.js' );
+}
+
 // add the akltura script to the head of our document.
-hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/manifest.js' );
-hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/vendor.js' );
-hsphloadScript( 'https://s3.amazonaws.com/hsph-canvas/app.js' );
 hsphloadScript( 'https://cdnapisec.kaltura.com/p/1446471/sp/144647100/embedIframeJs/uiconf_id/30101351/partner_id/1446471' );
