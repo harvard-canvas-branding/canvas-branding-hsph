@@ -28,10 +28,6 @@ function hsphKalturaThreePlay() {
 
             // Now that we have loaded the kaltura player we can also load threeplay.
             if ( $( this ).attr( 'title' ) ) {
-                /* global p3_api_key:true */
-                p3_api_key = '';
-                /* global p3_window_wait:true */
-                p3_window_wait = false;
                 $( '#video' + index ).append( '<div id="transcript_' + $( this ).attr( 'title' ) + '"></div>');
                 /* global p3_instances:true */
                 if (typeof p3_instances == 'undefined') p3_instances = {};
