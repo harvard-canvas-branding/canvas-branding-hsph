@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,7 +18,18 @@ mix.autoload({
 });
 
 mix.webpackConfig({
-
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                options: {
+                    fix: true
+                }
+            }
+        ]
+    }
 });
 
 // Combine and minify JavaScript
