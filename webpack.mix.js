@@ -38,6 +38,7 @@ mix.js([
     'node_modules/jquery-ui/ui/widgets/tabs.js',
     'js/google.js',
     'js/kalturathreeplay.js',
+    'js/blue-explorance.js',
     'js/uitabs.js'
 ], 'public/js/app.js');
 
