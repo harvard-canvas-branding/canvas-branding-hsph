@@ -1,4 +1,5 @@
-var BLUE_CANVAS_SETUP = { // eslint-disable-line no-unused-vars
+
+window.BLUE_CANVAS_SETUP = { // eslint-disable-line no-unused-vars
     connectorUrl: 'https://harvard.bluera.com/harvardBlueConnector/',
     canvasAPI: 'https://canvas.harvard.edu',
     domainName: 'com.explorance',
