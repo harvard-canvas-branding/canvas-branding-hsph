@@ -41,9 +41,9 @@ if( window.location.href.indexOf( 'harvard.test.instructure.com' ) > -1 ) {
 	// Load prod JS
 	hsphloadScript( 'https://content.sph.harvard.edu/it/canvas-theme/prod/js/manifest.js' );
 	hsphloadScript( 'https://content.sph.harvard.edu/it/canvas-theme/prod/js/vendor.js' );
-	hsphloadStylesheet( 'https://content.sph.harvard.edu/it/canvas-theme/prod/js/app.css' );
+	hsphloadStylesheet( 'https://content.sph.harvard.edu/it/canvas-theme/prod/js/app.js' );
 	// Load prod CSS
-	hsphloadStylesheet( 'https://content.sph.harvard.edu/it/canvas-theme/dev/prod/app.css' );
+	hsphloadStylesheet( 'https://content.sph.harvard.edu/it/canvas-theme/prod/css/app.css' );
 }
 
 // add the akltura script to the head of our document.
