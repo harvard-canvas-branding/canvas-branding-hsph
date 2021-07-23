@@ -1,0 +1,35 @@
+name: Push SPH Canvas Theme to S3 - Dev
+
+on:
+  push:
+    branches:
+    - '*'
+
+jobs:
+  push-to-s3-dev:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.S3_PUSHTOCONTENT_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.S3_PUSHTOCONTENT_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: NPM install and run
+      run: |
+        npm install
+        npm run production
+
+    - name: Deploy static assets to S3 bucket
+      run: |
+        aws s3 sync ./public s3://hsph-content/it/canvas-theme/dev  --delete
+    
+    - name: Invalidate cache in AWS CloudFront
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.S3_PUSHTOCONTENT_DISTRIBUTION_ID }} --paths "/it/canvas-theme*"

@@ -1,0 +1,78 @@
+.img-rounded {
+  border-radius: 5px;
+  background: #000;
+  margin: 3px;
+}
+
+.secondary-information {
+  border-radius: 5px;
+  background-color: #e3e8e9;
+  padding: 5px;
+}
+
+/**********************************************
+************  Accordion Style  ****************
+**********************************************/
+#accordion-custom {
+  margin: 10px auto;
+}
+
+#accordion-custom .ui-accordion-content {
+  width: auto;
+  color: #777;
+  font-size: 12pt;
+  line-height: 16pt;
+  padding: 20px;
+}
+
+#accordion-custom .ui-accordion-content > * {
+  margin: 0;
+  padding: 10px;
+}
+
+#accordion-custom .ui-accordion-header {
+  background-color: #ccc;
+  margin: 0px;
+}
+
+#accordion-custom .ui-accordion-header a {
+  color: #fff;
+  line-height: 20px;
+  display: block;
+  font-size: 14pt;
+  width: 100%;
+  text-indent: 5px;
+}
+
+#accordion-custom .ui-accordion-header:nth-of-type(3n-2) {
+  background-color: #a51c30;
+  /* FF3.6+ */
+  /* Chrome,Safari4+ */
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background-image: linear-gradient(to bottom, #a51c30 0%, #841626 100%);
+  /* W3C */
+}
+
+#accordion-custom .ui-accordion-header:nth-of-type(3n-1) {
+  background-color: #f7b446;
+  /* FF3.6+ */
+  /* Chrome,Safari4+ */
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background-image: linear-gradient(to bottom, #f7b446 0%, #c59038 100%);
+  /* W3C */
+}
+
+#accordion-custom .ui-accordion-header:nth-of-type(3n+0) {
+  background-color: #6e9eaf;
+  /* FF3.6+ */
+  /* Chrome,Safari4+ */
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background-image: linear-gradient(to bottom, #6e9eaf 0%, #587e8c 100%);
+  /* W3C */
+}
