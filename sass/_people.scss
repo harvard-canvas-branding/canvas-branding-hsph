@@ -7,7 +7,8 @@ body.people [id^="user-avatar-people-page"] span {
 }
 
 @media print {
-    // When printing hide HUIDS
+    // When printing hide HUIDS and URLs
+    a[href]:after,
     body.people .roster td:nth-child(3), 
     body.people .roster th:nth-child(3), 
     body.people .roster td:nth-child(4), 
